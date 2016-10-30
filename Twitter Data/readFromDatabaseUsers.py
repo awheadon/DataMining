@@ -7,6 +7,7 @@ import matplotlib.dates as dates
 import datetime as dt
 import itertools
 #requires mongopy and matplotlib to install use: pip install [matplotlib/mongopy]
+#Takes some time because of large number of tweets status is shown in console
 def checkExist(tweetUser, users):
     x = 0
     while(x<len(users)):
@@ -22,24 +23,16 @@ def createPlot(test, name):
     test, test2 = itertools.tee(test)
     users = []
     for tweet in test:
-        #print ast.literal_eval(str(tweet))
         currentUser = tweet['user']['screen_name']
        
         if(not(currentUser in users)):
             users.append(currentUser)
-        #print stuff
-        ##print stuff["user"]["screen_name"]
-        ##users.append(json.load(tweet))
 
 
     for tweet2 in test2:
-        #print "Hello"
-        #users.append(tweet['screen_name'])
-        #print "Hello"
         stringTweet = unicodedata.normalize('NFKD', tweet2['created_at']).encode('ascii', 'ignore')
         if ("Oct 11" in stringTweet) and checkExist(tweet2['user']['screen_name'], users):
             days[0] += 1
-            #print 'remove ' + tweet2['user']['screen_name']
             users.remove(tweet2['user']['screen_name'])
         elif "Oct 12" in stringTweet and checkExist(tweet2['user']['screen_name'], users):
             days[1] += 1
