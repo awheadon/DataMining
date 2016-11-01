@@ -71,7 +71,7 @@ CurrentSum = None
 plt.gcf().autofmt_xdate()
 plt.xlabel('Date')
 plt.ylabel('Number of Users')
-plt.title('Users')
+plt.title('Number of Total User by Filter')
 plt.legend()
 plt.show()
 
