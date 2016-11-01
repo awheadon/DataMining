@@ -70,16 +70,16 @@ CurrentSum = None
 
 plt.gcf().autofmt_xdate()
 plt.xlabel('Date')
-plt.ylabel('Number of Users')
-plt.title('Users')
+plt.ylabel('Number of Tweets')
+plt.title('Tweets')
 plt.legend()
 plt.show()
 
-plt.plot(date, sumDays, label="Total Users")
+plt.plot(date, sumDays, label="Total Tweets")
 plt.gcf().autofmt_xdate()
 plt.xlabel('Date')
-plt.ylabel('Number of Users')
-plt.title('Number of Total Users')
+plt.ylabel('Number of Tweets')
+plt.title('Number of Total Tweets')
 plt.legend()
 plt.show()
 
