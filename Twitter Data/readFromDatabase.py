@@ -75,11 +75,11 @@ plt.title('Users')
 plt.legend()
 plt.show()
 
-plt.plot(date, sumDays, label="Number of Total Users")
+plt.plot(date, sumDays, label="Total Users")
 plt.gcf().autofmt_xdate()
 plt.xlabel('Date')
 plt.ylabel('Number of Users')
-plt.title('Tweets')
+plt.title('Number of Total Users')
 plt.legend()
 plt.show()
 
