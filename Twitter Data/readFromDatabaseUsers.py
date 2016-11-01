@@ -8,18 +8,12 @@ import datetime as dt
 #requires mongopy and matplotlib to install use: pip install [matplotlib/mongopy]
 def createPlot(title, col):
     days = [0,0,0,0,0,0,0,0,0,0,0]
-    
-    days[0] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 11"}}))
-    days[1] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 12"}}))
-    days[2] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 13"}}))
-    days[3] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 14"}}))
-    days[4] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 15"}}))
-    days[5] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 16"}}))
-    days[6] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 17"}}))
-    days[7] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 18"}}))
-    days[8] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 19"}}))
-    days[9] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 20"}}))
-    days[10] = len(col.distinct("user.screen_name", { "created_at" : {'$regex': "Oct 21"}}))
+    iterCount = 0
+    dates = ["Oct 11", "Oct 12", "Oct 13", "Oct 14", "Oct 15", "Oct 16",
+             "Oct 17", "Oct 18", "Oct 19", "Oct 20", "Oct 21"]
+    while (iterCount < len(days)):
+        days[iterCount] = len(col.distinct("user.screen_name", { "created_at" : {'$regex':  dates[iterCount]}}))
+        iterCount += 1
     
     plt.plot(date, days, label=title)
     print "Created plot: " + title
