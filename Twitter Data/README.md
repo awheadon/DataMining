@@ -10,7 +10,7 @@ To do this
 1) install mongodb from:
 
 
-   https://www.mongodb.com/download-center?jmp=nav#community(Windows:Windows Server 2008 R2 64/32)
+   https://www.mongodb.com/download-center?jmp=nav#community (Windows:Windows Server 2008 R2 64/32)
    
    
 2) Create folder C:\data\ (if it doesn't exist) and put db folder inside data
