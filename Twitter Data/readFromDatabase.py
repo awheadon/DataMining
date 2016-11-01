@@ -71,7 +71,7 @@ CurrentSum = None
 plt.gcf().autofmt_xdate()
 plt.xlabel('Date')
 plt.ylabel('Number of Tweets')
-plt.title('Tweets')
+plt.title('Number of Total Tweets by Filter')
 plt.legend()
 plt.show()
 
