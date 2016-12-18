@@ -61,7 +61,7 @@ train_docs = preprocessing(train_docs)
 test_docs = preprocessing(test_docs)
 print "Preprossing Complete"
 
-vectorizer = TfidfVectorizer(min_df=5, max_df = 0.8, sublinear_tf=True, use_idf=True)
+##vectorizer = TfidfVectorizer(min_df=5, max_df = 0.8, sublinear_tf=True, use_idf=True)
 vectorizer = CountVectorizer(stop_words='english')
 train_features = vectorizer.fit_transform(train_docs)
 test_features = vectorizer.transform(test_docs)
