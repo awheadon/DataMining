@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.metrics import adjusted_rand_score
 
-
+#Read documents
 df = pd.read_csv('Documents.csv', header=0)
 documents = df.SMS
 
@@ -15,6 +15,7 @@ print documents[0]
 parsedString = []
 ps = PorterStemmer()
 num_k = 2
+#remove puncuation, short words, special characters and numbers from 
 for text in documents:
     text = re.sub(r"(?:\@|'|https?\://)\S+", "", text)  # delete punctuation
     text = re.sub(r'[^\w\s]','', text)  # delete punctuation
@@ -25,18 +26,21 @@ for text in documents:
     #print parsedString
     
 vectorizer = TfidfVectorizer(stop_words='english')
+#Vectorize data
 X = vectorizer.fit_transform(parsedString)
 count = 0;
+#Loop while 3 or more term are not the top terms
 while(count<3):
     count = 0;
     true_k = 2
+    #Perform K means
     model = KMeans(n_clusters=true_k, init='k-means++', max_iter=1000, n_init=20, verbose=1)
     model.fit(X)
 
 
 
 
-
+    #Check top terms
     print("Top terms per cluster:")
     order_centroids = model.cluster_centers_.argsort()[:, ::-1]
     terms = vectorizer.get_feature_names()
@@ -53,6 +57,6 @@ while(count<3):
     for l in hrlp:
         if l == 1:
             i+=1
-            
+    #print data        
     print hrlp
     print count
