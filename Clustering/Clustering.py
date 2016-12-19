@@ -10,7 +10,7 @@ from sklearn.metrics import adjusted_rand_score
 #Read documents
 df = pd.read_csv('Documents.csv', header=0)
 documents = df.SMS
-
+predictions = None
 print documents[0]
 parsedString = []
 ps = PorterStemmer()
@@ -60,3 +60,7 @@ while(count<3):
     #print data        
     print hrlp
     print count
+    predictions = hrlp
+    #df = pd..DataFrame(finalpredictionList)
+    #df.to_csv('Submission.csv',mode = 'a',header ='sentiment')
+    
