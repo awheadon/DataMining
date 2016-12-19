@@ -6,7 +6,7 @@ from scipy import *
 import numpy as np
 from scipy.sparse import *
 from sklearn.naive_bayes import MultinomialNB
-
+import pandas
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn import metrics
@@ -73,7 +73,8 @@ test_features = vectorizer.transform(test_docs)
 #Use term frequecy to reweight more common words
 tfidf_transformer = TfidfTransformer()
 train_tfidf = tfidf_transformer.fit_transform(train_features)
-
+train_docs = None
+test+docs = None
 #Uncomment to use Niave Bayes and comment out The three sgd to use
 ##nb = MultinomialNB()
 ##nb.fit(train_tfidf, lable)
@@ -90,4 +91,8 @@ predictionList = predictions.tolist()
 finalpredictionList = []
 for entry in predictionList:
     finalpredictionList.append(int(entry))
+predictionsList = None
+#df = pandas.DataFrame(finalpredictionList)
+#df.to_csv('Submission.csv',mode = 'a',header ='sentiment')
 print finalpredictionList
+
